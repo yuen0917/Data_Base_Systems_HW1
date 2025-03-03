@@ -239,8 +239,19 @@ class AddressBook:
             json.dump([contact.to_dict() for contact in self.contacts], f, ensure_ascii=False, indent=2)
 
     def add_contact(self, name: str, phone: str, email: str, address: str) -> bool:
+        # 檢查所有欄位是否為空
+        empty_fields = []
         if not name or len(name.strip()) == 0:
-            return False, "姓名不能為空！"
+            empty_fields.append("姓名")
+        if not phone or len(phone.strip()) == 0:
+            empty_fields.append("電話")
+        if not email or len(email.strip()) == 0:
+            empty_fields.append("電子郵件")
+        if not address or len(address.strip()) == 0:
+            empty_fields.append("地址")
+
+        if empty_fields:
+            return False, f"以下欄位為必填：{', '.join(empty_fields)}"
 
         if any(contact.name == name for contact in self.contacts):
             return False, "已存在相同姓名的聯絡人！"
@@ -273,11 +284,16 @@ class AddressBook:
         return False, f"找不到名為 {name} 的聯絡人！"
 
     def delete_contact(self, name: str) -> bool:
-        for i, contact in enumerate(self.contacts):
-            if contact.name == name:
-                del self.contacts[i]
-                self.save_contacts()
-                return True, "聯絡人刪除成功！"
+        # 確保name是字串類型
+        name = str(name).strip()
+        # 使用列表推導式找出要刪除的聯絡人索引
+        indices = [i for i, contact in enumerate(self.contacts) if str(contact.name).strip() == name]
+
+        if indices:
+            # 刪除找到的第一個匹配聯絡人
+            del self.contacts[indices[0]]
+            self.save_contacts()
+            return True, "聯絡人刪除成功！"
         return False, f"找不到名為 {name} 的聯絡人！"
 
     def search_contacts(self, query: str, search_type: str) -> List[Contact]:
@@ -662,6 +678,8 @@ class AddressBookGUI:
 
         name = self.tree.item(selected_item)['values'][0]
         if messagebox.askyesno("確認", f"確定要刪除 {name} 的聯絡資料嗎？"):
+            # 先確保contacts.json檔案是最新的
+            self.address_book.load_contacts()
             success, message = self.address_book.delete_contact(name)
             if success:
                 self.refresh_contact_list()
