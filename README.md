@@ -65,7 +65,8 @@
 
 ## 使用方式
 
-1. 執行程式：
+1. 確保所有檔案都在同一個目錄下
+2. 執行主程式：
 
   ```bash
   python address_book_main.py
@@ -88,12 +89,13 @@
 
 ## 檔案結構
 
-- `address_book_main.py`: 主程式入口
-- `gui.py`: 圖形介面相關程式碼
-- `models.py`: 資料模型定義
-- `widgets.py`: 自定義控件
-- `constants.py`: 常數設定（如顏色主題）
-- `contacts.json`: 資料儲存檔案
+專案包含以下關鍵檔案：
+- `address_book_main.py`: 主程式入口點
+- `models.py`: 資料模型（Contact 和 AddressBook 類別）
+- `gui.py`: 圖形介面實現
+- `widgets.py`: 自定義控件（按鈕和輸入框）
+- `constants.py`: 常數設定（顏色主題等）
+- `contacts.json`: 資料儲存檔案（自動生成）
 
 ## 注意事項
 

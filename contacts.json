@@ -196,5 +196,11 @@
     "phone": "789",
     "email": "789",
     "address": "123"
+  },
+  {
+    "name": "小賴",
+    "phone": "0123-456-789",
+    "email": "lai@example",
+    "address": "新北勢永和區中和路100號"
   }
 ]
