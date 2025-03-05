@@ -40,19 +40,37 @@
 - Python 3.6 或更高版本
 - 必要的 Python 套件：
   - tkinter (通常包含在 Python 標準庫中)
+  - typing (用於類型提示，通常包含在 Python 標準庫中)
+  - json (用於資料儲存，通常包含在 Python 標準庫中)
+  - os (用於檔案操作，通常包含在 Python 標準庫中)
 
 ## 安裝步驟
 
 1. 確保已安裝 Python 3.6 或更高版本
 2. 下載專案檔案
-3. 執行主程式
+3. 如果使用的是 Windows 系統，tkinter 通常已經包含在 Python 安裝中
+4. 如果使用的是 Linux 系統，可能需要額外安裝 tkinter：
+
+   ```bash
+   # Ubuntu/Debian
+   sudo apt-get install python3-tk
+
+   # Fedora
+   sudo dnf install python3-tkinter
+
+   # CentOS
+   sudo yum install python3-tkinter
+   ```
+
+5. 執行主程式
 
 ## 使用方式
 
 1. 執行程式：
-```bash
-python address_book_main.py
-```
+
+  ```bash
+  python address_book_main.py
+  ```
 
 2. 基本操作：
    - 點擊「新增聯絡人」按鈕來新增資料
