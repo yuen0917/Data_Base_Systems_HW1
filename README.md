@@ -37,15 +37,15 @@
 
 1. 安裝必要套件：
 
-```bash
-pip install PyQt6
-```
+   ```bash
+   pip install PyQt6
+   ```
 
 2. 執行程式：
 
-```bash
-python main.py
-```
+   ```bash
+   python main.py
+   ```
 
 ## 字體相容性說明
 
