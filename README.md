@@ -42,26 +42,102 @@
   - tkinter (通常包含在 Python 標準庫中)
   - typing (用於類型提示，通常包含在 Python 標準庫中)
   - json (用於資料儲存，通常包含在 Python 標準庫中)
+  - os (用於檔案操作，通常包含在 Python 標準庫中)
 
 ## 安裝步驟
 
 1. 確保已安裝 Python 3.6 或更高版本
-2. 下載專案檔案
-3. 如果使用的是 Windows 系統，tkinter 通常已經包含在 Python 安裝中
-4. 如果使用的是 Linux 系統，可能需要額外安裝 tkinter：
+
+2. 根據作業系統執行相應的安裝步驟：
+
+   ### Windows
+
+   - Python 安裝時通常已包含 tkinter
+   - 直接執行程式即可
+
+   ### macOS
+
+   - 使用 Homebrew 安裝 Python（如果尚未安裝）：
+
+     ```bash
+     # 安裝 Homebrew（如果尚未安裝）
+     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+     # 安裝 Python
+     brew install python
+     ```
+
+   - 安裝 tkinter（如果需要）：
+
+     ```bash
+     brew install python-tk@3.9  # 根據您的 Python 版本選擇
+     ```
+
+   ### Linux
+
+   - Ubuntu/Debian：
+
+     ```bash
+     sudo apt-get install python3-tk
+     ```
+
+   - Fedora：
+
+     ```bash
+     sudo dnf install python3-tkinter
+     ```
+
+   - CentOS：
+
+     ```bash
+     sudo yum install python3-tkinter
+     ```
+
+3. 下載專案檔案並確保所有檔案在同一目錄下
+
+4. 執行程式：
 
    ```bash
-   # Ubuntu/Debian
-   sudo apt-get install python3-tk
+   # Windows
+   python address_book_main.py
 
-   # Fedora
-   sudo dnf install python3-tkinter
-
-   # CentOS
-   sudo yum install python3-tkinter
+   # macOS/Linux
+   python3 address_book_main.py
    ```
 
-5. 執行主程式
+## 字體相容性說明
+
+- Windows 預設使用 Microsoft JhengHei UI 字體
+- macOS 和 Linux 系統會自動使用系統預設中文字體
+  - macOS 可能使用 PingFang TC 或 Heiti TC
+  - Linux 可能使用 Noto Sans CJK TC 或其他中文字體
+
+如果遇到字體顯示問題，程式會自動使用系統可用的替代字體。
+
+## 常見問題解決
+
+1. macOS 執行時遇到權限問題：
+
+   ```bash
+   chmod +x address_book_main.py
+   ```
+
+2. 找不到 tkinter 模組：
+   - 確認 Python 版本：
+
+     ```bash
+     python3 --version
+     ```
+
+   - 重新安裝 tkinter：
+
+     ```bash
+     brew reinstall python-tk@3.9  # 使用對應的 Python 版本
+     ```
+
+3. 字體顯示異常：
+   - 檢查系統是否安裝了中文字體
+   - 程式會自動使用系統可用的替代字體
 
 ## 使用方式
 
@@ -90,6 +166,7 @@
 ## 檔案結構
 
 專案包含以下關鍵檔案：
+
 - `address_book_main.py`: 主程式入口點
 - `models.py`: 資料模型（Contact 和 AddressBook 類別）
 - `gui.py`: 圖形介面實現
