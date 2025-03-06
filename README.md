@@ -1,23 +1,16 @@
 # 通訊錄管理系統
 
-這是一個現代化的通訊錄管理系統，使用 Python 開發，具有圖形使用者介面（GUI）和完整的資料管理功能。
+這是一個使用 PyQt6 開發的通訊錄管理系統，提供基本的聯絡人管理功能。
 
 ## 功能特點
 
-- 新增聯絡人資料（姓名、電話、電子郵件、地址）
-- 瀏覽所有聯絡人資料
-- 更新現有聯絡人資料
-- 刪除聯絡人資料
-- 多功能搜尋系統
-  - 支援按姓名搜尋
-  - 支援按電話搜尋
-  - 支援按電子郵件搜尋
-  - 支援按地址搜尋
-  - 支援全欄位搜尋
-- 靈活的排序功能
-  - 支援按任意欄位排序
-  - 支援升序/降序切換
-  - 可重置為預設排序順序
+- 新增聯絡人
+- 編輯聯絡人
+- 刪除聯絡人
+- 搜尋聯絡人（支援多種搜尋條件）
+- 排序功能（點擊欄位標題可排序）
+- 右鍵選單操作
+- 現代化深色介面
 
 ## 資料欄位限制
 
@@ -37,73 +30,22 @@
 
 ## 系統需求
 
-- Python 3.6 或更高版本
-- 必要的 Python 套件：
-  - tkinter (通常包含在 Python 標準庫中)
-  - typing (用於類型提示，通常包含在 Python 標準庫中)
-  - json (用於資料儲存，通常包含在 Python 標準庫中)
-  - os (用於檔案操作，通常包含在 Python 標準庫中)
+- Python 3.6 或以上版本
+- PyQt6
 
-## 安裝步驟
+## 安裝方式
 
-1. 確保已安裝 Python 3.6 或更高版本
+1. 安裝必要套件：
 
-2. 根據作業系統執行相應的安裝步驟：
+```bash
+pip install PyQt6
+```
 
-   ### Windows
+2. 執行程式：
 
-   - Python 安裝時通常已包含 tkinter
-   - 直接執行程式即可
-
-   ### macOS
-
-   - 使用 Homebrew 安裝 Python（如果尚未安裝）：
-
-     ```bash
-     # 安裝 Homebrew（如果尚未安裝）
-     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-
-     # 安裝 Python
-     brew install python
-     ```
-
-   - 安裝 tkinter（如果需要）：
-
-     ```bash
-     brew install python-tk@3.9  # 根據您的 Python 版本選擇
-     ```
-
-   ### Linux
-
-   - Ubuntu/Debian：
-
-     ```bash
-     sudo apt-get install python3-tk
-     ```
-
-   - Fedora：
-
-     ```bash
-     sudo dnf install python3-tkinter
-     ```
-
-   - CentOS：
-
-     ```bash
-     sudo yum install python3-tkinter
-     ```
-
-3. 下載專案檔案並確保所有檔案在同一目錄下
-
-4. 執行程式：
-
-   ```bash
-   # Windows
-   python address_book_main.py
-
-   # macOS/Linux
-   python3 address_book_main.py
-   ```
+```bash
+python main.py
+```
 
 ## 字體相容性說明
 
@@ -119,43 +61,52 @@
 1. macOS 執行時遇到權限問題：
 
    ```bash
-   chmod +x address_book_main.py
+   chmod +x main.py
    ```
 
-2. 找不到 tkinter 模組：
+2. 找不到 PyQt6 模組：
    - 確認 Python 版本：
 
      ```bash
      python3 --version
      ```
 
-   - 重新安裝 tkinter：
+   - 重新安裝 PyQt6：
 
      ```bash
-     brew reinstall python-tk@3.9  # 使用對應的 Python 版本
+     pip install PyQt6
      ```
 
 3. 字體顯示異常：
    - 檢查系統是否安裝了中文字體
    - 程式會自動使用系統可用的替代字體
 
-## 使用方式
+## 使用說明
 
-1. 確保所有檔案都在同一個目錄下
-2. 執行主程式：
+1. 新增聯絡人：
+   - 點擊「新增聯絡人」按鈕
+   - 填寫聯絡人資訊
+   - 點擊「儲存」
 
-  ```bash
-  python address_book_main.py
-  ```
+2. 編輯聯絡人：
+   - 在聯絡人上按右鍵
+   - 選擇「編輯」
+   - 修改資訊後儲存
 
-2. 基本操作：
+3. 刪除聯絡人：
+   - 在聯絡人上按右鍵
+   - 選擇「刪除」
+   - 確認刪除
 
-   - 點擊「新增聯絡人」按鈕來新增資料
-   - 在搜尋框輸入關鍵字進行搜尋
-   - 使用下拉選單選擇搜尋類型
-   - 點擊表格標題進行排序
-   - 右鍵點擊聯絡人可進行編輯或刪除
-   - 點擊「重置排序」回到預設排序順序
+4. 搜尋功能：
+   - 選擇搜尋類型
+   - 輸入關鍵字
+   - 系統會即時顯示符合的結果
+
+5. 排序功能：
+   - 點擊欄位標題可進行排序
+   - 再次點擊可切換升序/降序
+   - 使用「重置排序」回到預設排序
 
 ## 資料儲存
 
@@ -165,17 +116,19 @@
 
 ## 檔案結構
 
-專案包含以下關鍵檔案：
-
-- `address_book_main.py`: 主程式入口點
-- `models.py`: 資料模型（Contact 和 AddressBook 類別）
-- `gui.py`: 圖形介面實現
-- `widgets.py`: 自定義控件（按鈕和輸入框）
-- `constants.py`: 常數設定（顏色主題等）
-- `contacts.json`: 資料儲存檔案（自動生成）
+- `main.py`: 程式進入點
+- `qt_gui.py`: 主要 GUI 介面實作
+- `qt_constants.py`: 顏色主題和樣式設定
+- `qt_dialogs.py`: 對話框相關實作
+- `models.py`: 資料模型和邏輯處理
 
 ## 注意事項
 
-- 電話號碼僅允許輸入數字
 - 所有欄位都是必填的
-- 不允許重複的聯絡人姓名
+- 姓名不能重複
+- 電話號碼只能輸入數字
+- 各欄位有長度限制：
+  - 姓名：最多 10 字元
+  - 電話：最多 15 字元
+  - 電子郵件：最多 20 字元
+  - 地址：最多 50 字元
