@@ -2,6 +2,7 @@ import sys
 from PyQt6.QtWidgets import QApplication, QMessageBox, QMainWindow, QWidget, QVBoxLayout, QHBoxLayout, QPushButton, QTableWidget, QLineEdit, QComboBox, QLabel, QTableWidgetItem, QMenu
 from qt_gui import AddressBookQt
 from qt_constants import COLORS
+from PyQt6.QtCore import Qt
 
 def handle_exception(_, exc_value, __):
     """處理未捕獲的異常"""
