@@ -35,13 +35,19 @@
 
 ## 安裝方式
 
-1. 安裝必要套件：
+1. 下載程式
+
+   ```bash
+   git clone https://github.com/yuen0917/Data_Base_Systems_HW1.git
+   ```
+
+2. 安裝必要套件：
 
    ```bash
    pip install PyQt6
    ```
 
-2. 執行程式：
+3. 執行程式：
 
    ```bash
    python main.py
